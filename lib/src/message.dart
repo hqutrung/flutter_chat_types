@@ -4,7 +4,9 @@ import 'package:meta/meta.dart';
 import 'messages/audio_message.dart';
 import 'messages/custom_message.dart';
 import 'messages/file_message.dart';
+import 'messages/gif_message.dart';
 import 'messages/image_message.dart';
+import 'messages/sticker_message.dart';
 import 'messages/system_message.dart';
 import 'messages/text_message.dart';
 import 'messages/unsupported_message.dart';
@@ -20,7 +22,9 @@ enum MessageType {
   system,
   text,
   unsupported,
-  video
+  video,
+  gif,
+  sticker,
 }
 
 /// All possible statuses message can have.
@@ -69,6 +73,10 @@ abstract class Message extends Equatable {
         return UnsupportedMessage.fromJson(json);
       case MessageType.video:
         return VideoMessage.fromJson(json);
+      case MessageType.gif:
+        return GifMessage.fromJson(json);
+      case MessageType.sticker:
+        return StickerMessage.fromJson(json);
     }
   }
 

@@ -1,30 +1,34 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'system_message.dart';
+part of 'sticker_message.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-SystemMessage _$SystemMessageFromJson(Map<String, dynamic> json) =>
-    SystemMessage(
+StickerMessage _$StickerMessageFromJson(Map<String, dynamic> json) =>
+    StickerMessage(
       author: User.fromJson(json['author'] as Map<String, dynamic>),
       createdAt: json['createdAt'] as int?,
+      height: (json['height'] as num?)?.toDouble(),
       id: json['id'] as String,
       metadata: json['metadata'] as Map<String, dynamic>?,
+      name: json['name'] as String,
       remoteId: json['remoteId'] as String?,
       repliedMessage: json['repliedMessage'] == null
           ? null
           : Message.fromJson(json['repliedMessage'] as Map<String, dynamic>),
       roomId: json['roomId'] as String?,
       showStatus: json['showStatus'] as bool?,
+      size: json['size'] as num,
       status: $enumDecodeNullable(_$StatusEnumMap, json['status']),
-      text: json['text'] as String,
       type: $enumDecodeNullable(_$MessageTypeEnumMap, json['type']),
       updatedAt: json['updatedAt'] as int?,
+      uri: json['uri'] as String,
+      width: (json['width'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$SystemMessageToJson(SystemMessage instance) {
+Map<String, dynamic> _$StickerMessageToJson(StickerMessage instance) {
   final val = <String, dynamic>{
     'author': instance.author.toJson(),
   };
@@ -45,7 +49,11 @@ Map<String, dynamic> _$SystemMessageToJson(SystemMessage instance) {
   writeNotNull('status', _$StatusEnumMap[instance.status]);
   val['type'] = _$MessageTypeEnumMap[instance.type]!;
   writeNotNull('updatedAt', instance.updatedAt);
-  val['text'] = instance.text;
+  writeNotNull('height', instance.height);
+  val['name'] = instance.name;
+  val['size'] = instance.size;
+  val['uri'] = instance.uri;
+  writeNotNull('width', instance.width);
   return val;
 }
 
